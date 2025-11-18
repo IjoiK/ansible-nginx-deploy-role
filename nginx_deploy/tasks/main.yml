@@ -19,4 +19,4 @@
     mode: '0644'
     backup: yes
     validate: nginx -t -c /etc/nginx/nginx.conf
-  notify: Verify and Reload Nginx
+  notify: restart nginx
