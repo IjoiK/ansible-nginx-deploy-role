@@ -1,4 +1,4 @@
 ---
 app_port: 3000
 server_name: localhost
-nginx_conf_dest: /etc/nginx/conf.d/app.conf
+nginx_conf_path: /etc/nginx/conf.d/app.conf

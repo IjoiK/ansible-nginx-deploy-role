@@ -3,4 +3,4 @@
   shell: nginx -t && systemctl reload nginx
   args:
     warn: false
-  listen: "restart nginx"
+  listen: "validate nginx"
