@@ -1,3 +1,22 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# tasks file for nginx_deploy
+- name: Install Nginx
+  package:
+    name: nginx
+    state: present
+
+- name: Ensure Nginx is enabled and started
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Deploy Nginx config with backup and validation
+  template:
+    src: nginx.conf.j2
+    dest: "{{ nginx_conf_dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+    validate: nginx -t -c /etc/nginx/nginx.conf
+  notify: Verify and Reload Nginx
